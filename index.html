@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HANDMADE CROCHET COLLECTION</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fbf8f1;
+      --green: #e6efe2;
+      --card: rgba(255,255,255,0.78);
+      --text: #44372f;
+      --muted: #6f675f;
+      --accent: #a97f7a;
+      --accent-dark: #815e5b;
+      --line: rgba(68,55,47,0.12);
+      --shadow: 0 20px 50px rgba(80, 66, 56, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Manrope", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.7), transparent 18%),
+        radial-gradient(circle at 85% 10%, rgba(210,229,204,0.65), transparent 24%),
+        linear-gradient(180deg, #fcfaf5 0%, #f7f4ed 45%, #edf4ea 100%);
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 0 0 56px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 24px 0 18px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      border: 2px solid rgba(169,127,122,0.45);
+      background: linear-gradient(135deg, #fff, #edf4ea);
+      box-shadow: var(--shadow);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent-dark);
+    }
+
+    .brand h1,
+    .section-title h2,
+    .hero h2,
+    .contact-box h2 {
+      font-family: "Cormorant Garamond", serif;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    .brand p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 0.95fr;
+      gap: 34px;
+      align-items: center;
+      padding: 24px 0 10px;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: #657b61;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.75rem;
+      font-weight: 800;
+    }
+
+    .hero h2 {
+      margin: 0;
+      font-size: clamp(3rem, 7vw, 5.8rem);
+      line-height: 0.94;
+      max-width: 9ch;
+    }
+
+    .hero p {
+      color: var(--muted);
+      line-height: 1.8;
+      margin-top: 18px;
+      max-width: 60ch;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 800;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #c7a5a0);
+      color: white;
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.7);
+      border-color: var(--line);
+      color: var(--text);
+    }
+
+    .hero-image-card,
+    .feature-strip,
+    .card,
+    .gallery-item,
+    .review,
+    .contact-box {
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      background: var(--card);
+    }
+
+    .hero-image-card {
+      border-radius: 30px;
+      overflow: hidden;
+      padding: 12px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(231,239,227,0.82));
+    }
+
+    .hero-image-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 22px;
+      aspect-ratio: 0.82;
+    }
+
+    .feature-strip {
+      margin-top: 18px;
+      border-radius: 22px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      padding: 16px;
+    }
+
+    .feature-strip div {
+      text-align: center;
+      font-weight: 800;
+      color: var(--accent-dark);
+    }
+
+    section {
+      padding-top: 86px;
+    }
+
+    .section-title {
+      max-width: 760px;
+      margin-bottom: 30px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: clamp(2.3rem, 4vw, 4rem);
+      line-height: 0.98;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .three-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      padding: 26px;
+      border-radius: 26px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.78), rgba(232,240,228,0.68));
+    }
+
+    .num {
+      display: inline-flex;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(169,127,122,0.12);
+      color: var(--accent-dark);
+      font-weight: 800;
+      font-size: 0.78rem;
+    }
+
+    .card h3 {
+      margin: 16px 0 8px;
+      font-size: 1.25rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .gallery-item {
+      border-radius: 26px;
+      overflow: hidden;
+    }
+
+    .gallery-item.large {
+      grid-column: span 2;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      object-fit: cover;
+      aspect-ratio: 1;
+    }
+
+    .gallery-item.large img {
+      aspect-ratio: 1.8;
+    }
+
+    .gallery-item .text {
+      padding: 18px 18px 20px;
+    }
+
+    .gallery-item h3 {
+      margin: 0 0 8px;
+      font-size: 1.2rem;
+    }
+
+    .gallery-item p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .reviews {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .review {
+      border-radius: 26px;
+      padding: 22px;
+    }
+
+    .review blockquote {
+      margin: 0 0 14px;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 1.02rem;
+    }
+
+    .review p {
+      margin: 0 0 16px;
+      font-weight: 700;
+    }
+
+    .review img {
+      width: 100%;
+      border-radius: 18px;
+      object-fit: cover;
+      aspect-ratio: 1.05;
+    }
+
+    .contact-box {
+      border-radius: 30px;
+      padding: 30px;
+      display: grid;
+      grid-template-columns: 1fr 0.95fr;
+      gap: 24px;
+      background: linear-gradient(135deg, rgba(255,253,249,0.95), rgba(228,236,223,0.88));
+    }
+
+    .contact-box h2 {
+      margin: 0;
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      line-height: 0.98;
+    }
+
+    .contact-box p,
+    .contact-box li {
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .contact-direct p {
+      margin: 0 0 6px;
+    }
+
+    .contact-direct a {
+      color: var(--accent-dark);
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .contact-form label {
+      display: grid;
+      gap: 8px;
+      font-weight: 700;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(68,55,47,0.14);
+      font: inherit;
+      background: rgba(255,255,255,0.85);
+    }
+
+    .contact-form textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 700ms ease, transform 700ms ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .three-grid,
+      .gallery,
+      .reviews,
+      .contact-box,
+      .feature-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-item.large {
+        grid-column: auto;
+      }
+
+      .feature-strip div {
+        padding: 6px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <div class="brand">
+        <div class="logo">HCC</div>
+        <div>
+          <h1>HANDMADE CROCHET COLLECTION</h1>
+          <p>Soft handmade pieces for gifting, styling, and custom orders</p>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="#gallery">Gallery</a>
+        <a href="#custom">Custom Orders</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="reveal">
+          <p class="eyebrow">Handmade with love and care</p>
+          <h2>Crochet pieces made just the way you imagine them.</h2>
+          <p>
+            Handmade Crochet Collection creates flowers, pouches, keychains, bags,
+            bottle covers, and cute accessories. We can make anything customer wants
+            in custom colors and lovely designs.
+          </p>
+          <div class="buttons">
+            <a class="btn btn-primary" href="#gallery">See Our Work</a>
+            <a class="btn btn-secondary" href="#contact">Place an Order</a>
+          </div>
+        </div>
+
+        <div class="hero-image-card reveal">
+          <img src="file:///C:/Users/User/Desktop/crochet/gajra.jpeg" alt="Crochet gajra">
+        </div>
+      </section>
+
+      <div class="feature-strip reveal">
+        <div>Flowers & Gajras</div>
+        <div>Pouches & Covers</div>
+        <div>Keychains</div>
+        <div>Mini Bags</div>
+        <div>Gift Orders</div>
+      </div>
+
+      <section id="custom">
+        <div class="section-title reveal">
+          <p class="eyebrow">Custom crochet service</p>
+          <h2>Tell us what you want and we will make it for you.</h2>
+          <p>
+            From cute accessories to special gifts, every order is crocheted with attention
+            to color, shape, and neat finishing.
+          </p>
+        </div>
+
+        <div class="three-grid">
+          <div class="card reveal">
+            <span class="num">01</span>
+            <h3>Choose your item</h3>
+            <p>Pick a pouch, flower, bag, charm, bottle cover, or any crochet design you want.</p>
+          </div>
+          <div class="card reveal">
+            <span class="num">02</span>
+            <h3>Pick your colors</h3>
+            <p>We can make soft, bright, pastel, or classic color combinations for your style.</p>
+          </div>
+          <div class="card reveal">
+            <span class="num">03</span>
+            <h3>Receive your order</h3>
+            <p>Your order is handmade carefully and packed nicely for use or gifting.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery">
+        <div class="section-title reveal">
+          <p class="eyebrow">Our collection</p>
+          <h2>Some crochet items made by Handmade Crochet Collection.</h2>
+        </div>
+
+        <div class="gallery">
+          <div class="gallery-item large reveal">
+            <img src="file:///C:/Users/User/Desktop/crochet/gajra.jpeg" alt="Gajra">
+            <div class="text">
+              <h3>Signature floral gajra</h3>
+              <p>Soft white flowers with beautiful red roses.</p>
+            </div>
+          </div>
+
+          <div class="gallery-item reveal">
+            <img src="file:///C:/Users/User/Desktop/crochet/bottle%20cover.jpeg" alt="Bottle cover">
+            <div class="text">
+              <h3>Bottle cover</h3>
+              <p>Useful and cute with a floral detail.</p>
+            </div>
+          </div>
+
+          <div class="gallery-item reveal">
+            <img src="file:///C:/Users/User/Desktop/crochet/bow.jpeg" alt="Bow keychain">
+            <div class="text">
+              <h3>Bow keychain</h3>
+              <p>Small, sweet and perfect for bags or keys.</p>
+            </div>
+          </div>
+
+          <div class="gallery-item reveal">
+            <img src="file:///C:/Users/User/Desktop/crochet/mahroon%20pouch.jpeg" alt="Mahroon pouch">
+            <div class="text">
+              <h3>Mahroon pouch</h3>
+              <p>Handmade pouch with a rich elegant color.</p>
+            </div>
+          </div>
+
+          <div class="gallery-item reveal">
+            <img src="file:///C:/Users/User/Desktop/crochet/rainbow.jpeg" alt="Rainbow keychain">
+            <div class="text">
+              <h3>Rainbow keychain</h3>
+              <p>Bright pastel shades with a playful look.</p>
+            </div>
+          </div>
+
+          <div class="gallery-item reveal">
+            <img src="file:///C:/Users/User/Desktop/crochet/cherry.jpeg" alt="Cherry charm">
+            <div class="text">
+              <h3>Cherry charm</h3>
+              <p>A cute little crochet accessory.</p>
+            </div>
+          </div>
+
+          <div class="gallery-item reveal">
+            <img src="file:///C:/Users/User/Desktop/crochet/bee.jpeg" alt="Bee charm">
+            <div class="text">
+              <h3>Bee bag charm</h3>
+              <p>A cheerful handmade charm for bags.</p>
+            </div>
+          </div>
+
+          <div class="gallery-item reveal">
+            <img src="file:///C:/Users/User/Desktop/crochet/draw%20string%20pouch.jpeg" alt="Draw string pouch">
+            <div class="text">
+              <h3>Drawstring pouch</h3>
+              <p>Soft and useful with a cute design.</p>
+            </div>
+          </div>
+
+          <div class="gallery-item reveal">
+            <img src="file:///C:/Users/User/Desktop/crochet/heart%20pouch.jpeg" alt="Heart pouch">
+            <div class="text">
+              <h3>Heart pouch</h3>
+              <p>A dreamy mini pouch in pastel shades.</p>
+            </div>
+          </div>
+
+          <div class="gallery-item reveal">
+            <img src="file:///C:/Users/User/Desktop/crochet/pink%20pouch.jpeg" alt="Pink pouch">
+            <div class="text">
+              <h3>Pink pouch</h3>
+              <p>Soft pink and white handmade design.</p>
+            </div>
+          </div>
+
+          <div class="gallery-item reveal">
+            <img src="file:///C:/Users/User/Desktop/crochet/tote%20bag.jpeg" alt="Tote bag">
+            <div class="text">
+              <h3>Tote bag</h3>
+              <p>A lovely tote with a sweet bow detail.</p>
+            </div>
+          </div>
+
+          <div class="gallery-item reveal">
+            <img src="file:///C:/Users/User/Desktop/crochet/dispatch.jpeg" alt="Dispatch">
+            <div class="text">
+              <h3>Orders ready to dispatch</h3>
+              <p>Every order is packed carefully and beautifully.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="reviews">
+        <div class="section-title reveal">
+          <p class="eyebrow">Customer love</p>
+          <h2>Real reviews from happy customers.</h2>
+        </div>
+
+        <div class="reviews">
+          <div class="review reveal">
+            <blockquote>
+              It was exactly the same as I ordered. The color, design everything is perfect.
+              It's so cute. Totally love it.
+            </blockquote>
+            <p>Customer review for the crochet gajra</p>
+            <img src="file:///C:/Users/User/Desktop/crochet/review%20gajra.jpeg" alt="Review gajra">
+          </div>
+
+          <div class="review reveal">
+            <blockquote>
+              Thank you so much for the bag. It was amazing. The stitches are neat and even
+              and the design is so cute. Overall quality is great and my sister loved it.
+            </blockquote>
+            <p>Customer review for a handmade crochet bag</p>
+            <img src="file:///C:/Users/User/Desktop/crochet/review%20purse.jpeg" alt="Review purse">
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="contact-box reveal">
+          <div>
+            <p class="eyebrow">Order your favorite piece</p>
+            <h2>Let's make your custom crochet idea come to life.</h2>
+            <p>
+              Share the item you want, your colors, and any picture inspiration.
+              We can create handmade crochet pieces for gifts, accessories, decor,
+              and special requests.
+            </p>
+
+            <div class="contact-direct">
+              <p><strong>Phone:</strong> <a href="tel:03212340655">03212340655</a></p>
+              <p><strong>Email:</strong> <a href="mailto:sabiqabhojani@gmail.com">sabiqabhojani@gmail.com</a></p>
+            </div>
+
+            <ul>
+              <li>Custom colors and styles available</li>
+              <li>Perfect for gifts, birthdays, and personal orders</li>
+              <li>Neat stitching and carefully finished details</li>
+            </ul>
+          </div>
+
+          <form class="contact-form">
+            <label>
+              Your name
+              <input type="text" placeholder="Enter your name">
+            </label>
+            <label>
+              What would you like made?
+              <input type="text" placeholder="Example: pouch, flower, bag, keychain">
+            </label>
+            <label>
+              Colors or details
+              <textarea placeholder="Tell us your colors, size, or design idea"></textarea>
+            </label>
+            <button type="submit" class="btn btn-primary">Send Order Request</button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const reveals = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    reveals.forEach((item, index) => {
+      item.style.transitionDelay = `${index * 60}ms`;
+      observer.observe(item);
+    });
+
+    const form = document.querySelector(".contact-form");
+    form?.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const button = form.querySelector("button");
+      const originalText = button.textContent;
+      button.textContent = "Request Received";
+      button.disabled = true;
+
+      setTimeout(() => {
+        button.textContent = originalText;
+        button.disabled = false;
+        form.reset();
+      }, 1800);
+    });
+  </script>
+</body>
+</html>
